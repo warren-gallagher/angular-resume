@@ -1,0 +1,29 @@
+<div class="text-center">
+    <h3>About</h3>
+</div>
+<div class="row justify-content-center">
+    <div class="col-auto">
+        <table class="table table-striped">
+            <tbody>
+                <tr>
+                    <th class="text-end p-2">Package Name</th>
+                    <td >{{ appInfo.appName }}</td>
+                </tr>
+                <tr>
+                    <th class="text-end p-2">Package Version</th>
+                    <td>{{ appInfo.appVersion }}</td>
+                </tr>
+                <tr>
+                    <th class="text-end p-2">Copyright</th>
+                    <td>{{config.copyright}}</td>
+                </tr>
+                <tr>
+                    <th class="text-end p-2">Repository</th>
+                    <td><a target="_blank" [href]="config.repositoryURL">
+                        {{config.repositoryURL}}
+                    </a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>  
+</div>

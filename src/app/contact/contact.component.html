@@ -1,0 +1,45 @@
+<div class="text-center">
+    <h3>{{contact.name}}</h3>
+</div>
+<div class="text-center">
+    <img src="assets/img/avatar-photo-400x400.jpg" />
+    <div class="row justify-content-center">
+        <div class="col-auto">
+            <table class="text-center">
+                <tbody class="text-center">
+                    <tr class="text-center">
+                        <td class="text-center">
+                            <i class="bi bi-envelope-fill"></i>
+                            <a [href]="contact.emailURL">{{ contact.emailAddr }}</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                           <i class="bi bi-telephone-fill"></i>
+                            <a [href]="contact.mobilePhoneURL">{{ contact.mobilePhone }}</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i class="bi bi-github"></i>
+                            <a [href]="contact.githubURL" target="_blank" >{{ contact.githubURL }}</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i class="bi bi-twitter"></i>
+                            <a [href]="contact.twitterURL" target="_blank" >{{ contact.twitterURL }}</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i class="bi bi-linkedin"></i>
+                            <a [href]="contact.linkedInURL" target="_blank" >{{ contact.linkedInURL }}</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+        
+</div>
