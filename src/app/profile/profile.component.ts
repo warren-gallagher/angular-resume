@@ -11,7 +11,9 @@ import type { Profile } from '../_services/profile.service';
 })
 export class ProfileComponent implements OnInit {
   contact: Contact | undefined;
-  profile: Profile | any;
+  profile: Profile | undefined;
+  contactLoaded: boolean = false;
+  profileLoaded: boolean = false;
 
   private contactService: ContactService;
   private profileService: ProfileService;
@@ -25,6 +27,7 @@ export class ProfileComponent implements OnInit {
     const observableContact = await this.contactService.getContact();
     observableContact.subscribe(c => {
       this.contact = c;
+      this.contactLoaded = true;
     })
   }
 
@@ -32,6 +35,7 @@ export class ProfileComponent implements OnInit {
     const observableProfile = await this.profileService.getProfile();
     observableProfile.subscribe(p => {
       this.profile = p;
+      this.profileLoaded = true;
     })
   }
 

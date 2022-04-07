@@ -15,7 +15,7 @@
         <h5 class="pt-2 text-primary underline text-center"><u>Profile</u></h5>
         <div class="container-fluid">
             <div class="font-size-xs" >
-                <markdown>{{profile.markdown}}</markdown>
+                <markdown *ngIf="profileLoaded">{{profile?.markdown}}</markdown>
             </div>
         </div>
 

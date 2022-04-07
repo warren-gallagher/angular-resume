@@ -1,5 +1,5 @@
 <div class="text-center">
-    <h3>{{contact?.name}} - Profile</h3>
-    <markdown>{{profile.markdown}}</markdown>
+    <h3 *ngIf="contactLoaded">{{contact?.name}} - Profile</h3>
+    <markdown *ngIf="profileLoaded">{{profile?.markdown}}</markdown>
     
 </div>

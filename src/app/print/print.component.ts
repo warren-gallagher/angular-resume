@@ -18,7 +18,8 @@ import type { Config } from '../_services/config.service';
 export class PrintComponent implements OnInit {
 
   contact: Contact | undefined;
-  profile: Profile | any;
+  profile: Profile | undefined;
+  profileLoaded: boolean = false;
   experience: Experience[] | undefined;
   technologies: Technology[] | undefined;
   config: Config | undefined;
@@ -48,6 +49,7 @@ export class PrintComponent implements OnInit {
     const observableProfile = await this.profileService.getProfile();
     observableProfile.subscribe(p => {
       this.profile = p;
+      this.profileLoaded = true;
     })
   }
 
