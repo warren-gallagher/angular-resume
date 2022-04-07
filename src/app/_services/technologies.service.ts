@@ -22,6 +22,8 @@ HTML, CSS, TCL, Bash, Ruby
       category: "Web Frameworks",
       markdown:
 `
+Angular.io - a frontend toolchain and framework for creating html/css/typesript web apps.
+
 Svelte - a frontend toolchain for creating blazing fast component based user interfaces.
 
 SvelteKit - a full stack toolchain and framework for creating Static, Server Side Rendered and Client Side Rendered applications.
