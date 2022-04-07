@@ -7,20 +7,20 @@
             <tbody>
                 <tr>
                     <th class="text-end p-2">Package Name</th>
-                    <td >{{ appInfo.appName }}</td>
+                    <td >{{ appInfo?.appName }}</td>
                 </tr>
                 <tr>
                     <th class="text-end p-2">Package Version</th>
-                    <td>{{ appInfo.appVersion }}</td>
+                    <td>{{ appInfo?.appVersion }}</td>
                 </tr>
                 <tr>
                     <th class="text-end p-2">Copyright</th>
-                    <td>{{config.copyright}}</td>
+                    <td>{{config?.copyright}}</td>
                 </tr>
                 <tr>
                     <th class="text-end p-2">Repository</th>
-                    <td><a target="_blank" [href]="config.repositoryURL">
-                        {{config.repositoryURL}}
+                    <td><a target="_blank" [href]="config?.repositoryURL">
+                        {{config?.repositoryURL}}
                     </a></td>
                 </tr>
             </tbody>

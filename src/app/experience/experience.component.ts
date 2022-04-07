@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ContactService } from '../_services/contact.service';
 import { ExperienceService } from '../_services/experience.service';
+import type { Contact } from '../_services/contact.service';
+import type { Experience } from '../_services/experience.service';
 
 @Component({
   selector: 'app-experience',
@@ -8,8 +10,8 @@ import { ExperienceService } from '../_services/experience.service';
   styleUrls: ['./experience.component.css']
 })
 export class ExperienceComponent implements OnInit {
-  contact: any;
-  experience: any;
+  contact: Contact | undefined;
+  experience: Experience[] | undefined;
   private contactService: ContactService;
   private experienceService: ExperienceService;
 

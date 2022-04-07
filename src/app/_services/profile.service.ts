@@ -5,17 +5,8 @@ export type Profile = {
   markdown: string;
 };
 
-
-@Injectable({
-  providedIn: 'root'
-})
-export class ProfileService {
-
-  constructor() { }
-
-  async getProfile() : Promise<Observable<Profile>> {
-    const profile: Profile = {
-      markdown: 
+const profile: Profile = {
+  markdown: 
 `
 Expert in web technologies, systems programming, real-time event processing and high-performance network computing. 
 I have worked in the computing and telecommunications industries for 38 years having assumed roles as VP Product Development, 
@@ -39,7 +30,17 @@ for wireless telecommunications carriers. The applications combined the power of
 Six months after its inception, SpeechFront was acquired by Nuance Communications, the world's leading provider of speech recognition technology. 
 Over the years I have represented many companies as a public speaker at conferences and trade shows.
 `
-    }
+}
+
+@Injectable({
+  providedIn: 'root'
+})
+
+export class ProfileService {
+
+  constructor() { }
+
+  async getProfile() : Promise<Observable<Profile>> {
     return of(profile);
   }
 }

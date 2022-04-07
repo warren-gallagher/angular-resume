@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { ContactService } from './_services/contact.service';
+import { Contact, ContactService } from './_services/contact.service';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +11,7 @@ export class AppComponent {
   title = `Resume`;
   active = 'contact';
   isMenuCollapsed = true;
-  contact: any;
+  contact: Contact | undefined;
   
   private contactService: ContactService;
   private titleService: Title;

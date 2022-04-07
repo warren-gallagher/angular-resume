@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ContactService } from '../_services/contact.service';
 import { TechnologiesService } from '../_services/technologies.service';
+import type { Contact } from '../_services/contact.service';
+import type { Technology } from '../_services/technologies.service';
 
 @Component({
   selector: 'app-technologies',
@@ -9,8 +11,8 @@ import { TechnologiesService } from '../_services/technologies.service';
 })
 export class TechnologiesComponent implements OnInit {
 
-  contact: any;
-  technologies: any;
+  contact: Contact | undefined;
+  technologies: Technology[] | undefined;
   private contactService: ContactService;
   private technologiesService: TechnologiesService;
 

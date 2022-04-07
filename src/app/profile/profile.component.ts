@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ContactService } from '../_services/contact.service';
 import { ProfileService } from '../_services/profile.service';
+import type { Contact } from '../_services/contact.service';
+import type { Profile } from '../_services/profile.service';
 
 @Component({
   selector: 'app-profile',
@@ -8,8 +10,8 @@ import { ProfileService } from '../_services/profile.service';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  contact: any;
-  profile: any;
+  contact: Contact | undefined;
+  profile: Profile | any;
 
   private contactService: ContactService;
   private profileService: ProfileService;

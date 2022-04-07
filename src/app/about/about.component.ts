@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppInfoService } from '../_services/app-info.service';
 import { Config, ConfigService } from '../_services/config.service';
+import type { AppInfo } from '../_services/app-info.service';
 
 @Component({
   selector: 'app-about',
@@ -9,8 +10,8 @@ import { Config, ConfigService } from '../_services/config.service';
 })
 export class AboutComponent implements OnInit {
 
-  appInfo: any;
-  config: any;
+  appInfo: AppInfo | undefined;
+  config: Config | undefined;
 
   private appInfoService: AppInfoService;
   private configService: ConfigService;

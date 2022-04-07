@@ -4,6 +4,11 @@ import { ProfileService } from '../_services/profile.service';
 import { ExperienceService } from '../_services/experience.service';
 import { TechnologiesService } from '../_services/technologies.service';
 import { ConfigService } from '../_services/config.service';
+import type { Contact } from '../_services/contact.service';
+import type { Profile } from '../_services/profile.service';
+import type { Experience } from '../_services/experience.service';
+import type { Technology } from '../_services/technologies.service';
+import type { Config } from '../_services/config.service';
 
 @Component({
   selector: 'app-print',
@@ -12,11 +17,11 @@ import { ConfigService } from '../_services/config.service';
 })
 export class PrintComponent implements OnInit {
 
-  contact: any;
-  profile: any;
-  experience: any;
-  technologies: any;
-  config: any;
+  contact: Contact | undefined;
+  profile: Profile | any;
+  experience: Experience[] | undefined;
+  technologies: Technology[] | undefined;
+  config: Config | undefined;
 
   private contactService : ContactService;
   private profileService: ProfileService;
