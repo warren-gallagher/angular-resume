@@ -23,25 +23,25 @@ export class ProfileComponent implements OnInit {
     this.profileService = profileService;
   }
 
-  async getContact(){
-    const observableContact = await this.contactService.getContact();
+  getContact(){
+    const observableContact = this.contactService.getContact();
     observableContact.subscribe(c => {
       this.contact = c;
       this.contactLoaded = true;
     })
   }
 
-  async getProfile(){
-    const observableProfile = await this.profileService.getProfile();
+ getProfile(){
+    const observableProfile = this.profileService.getProfile();
     observableProfile.subscribe(p => {
       this.profile = p;
       this.profileLoaded = true;
     })
   }
 
-  async ngOnInit() : Promise<void> {
-    await this.getContact();
-    await this.getProfile();
+  ngOnInit() : void {
+    this.getContact();
+    this.getProfile();
   }
 
 

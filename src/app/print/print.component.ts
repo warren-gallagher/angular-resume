@@ -38,48 +38,48 @@ export class PrintComponent implements OnInit {
     this.configService = configService;
    }
 
-   async getContact(){
-    const observableContact = await this.contactService.getContact();
+   getContact(){
+    const observableContact = this.contactService.getContact();
     observableContact.subscribe(c => {
       this.contact = c;
     })
   }
 
-  async getProfile(){
-    const observableProfile = await this.profileService.getProfile();
+  getProfile(){
+    const observableProfile = this.profileService.getProfile();
     observableProfile.subscribe(p => {
       this.profile = p;
       this.profileLoaded = true;
     })
   }
 
-  async getExperience(){
-    const observableExperience = await this.experienceService.getProfile();
+  getExperience(){
+    const observableExperience = this.experienceService.getProfile();
     observableExperience.subscribe(e => {
       this.experience = e;
     })
   }
 
-  async getTechnologies() {
-    const observableTechnologies = await this.technologiesService.getTechnologies();
+  getTechnologies() {
+    const observableTechnologies = this.technologiesService.getTechnologies();
     observableTechnologies.subscribe(t => {
       this.technologies = t;
     })
   }
 
-  async getConfig() {
-    const observableConfig = await this.configService.getConfig();
+  getConfig() {
+    const observableConfig = this.configService.getConfig();
     observableConfig.subscribe(c => {
       this.config = c;
     })
   }
 
-  async ngOnInit() : Promise<void> {
-    await this.getContact();
-    await this.getProfile();
-    await this.getExperience();
-    await this.getTechnologies();
-    await this.getConfig();
+ ngOnInit() : void {
+    this.getContact();
+    this.getProfile();
+    this.getExperience();
+    this.getTechnologies();
+    this.getConfig();
   }
 
   ngAfterViewInit() : void {

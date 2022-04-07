@@ -21,23 +21,23 @@ export class TechnologiesComponent implements OnInit {
     this.technologiesService = technologiesService;
   }
 
-  async getContact(){
-    const observableContact = await this.contactService.getContact();
+  getContact(){
+    const observableContact =this.contactService.getContact();
     observableContact.subscribe(c => {
       this.contact = c;
     })
   }
 
-  async getTechnologies() {
-    const observableTechnologies = await this.technologiesService.getTechnologies();
+  getTechnologies() {
+    const observableTechnologies = this.technologiesService.getTechnologies();
     observableTechnologies.subscribe(t => {
       this.technologies = t;
     })
   }
 
-  async ngOnInit() : Promise<void> {
-    await this.getContact();
-    await this.getTechnologies();
+  ngOnInit() : void {
+    this.getContact();
+    this.getTechnologies();
   }
 
 }

@@ -21,22 +21,22 @@ export class AboutComponent implements OnInit {
     this.configService = configService;
   }
 
-  async getAppInfo(){
-    const observableAppInfo = await this.appInfoService.getAppInfo();
+  getAppInfo(){
+    const observableAppInfo = this.appInfoService.getAppInfo();
     observableAppInfo.subscribe(a => {
       this.appInfo = a;
     })
   }
 
-  async getConfig() {
-    const observableConfig = await this.configService.getConfig();
+ getConfig() {
+    const observableConfig = this.configService.getConfig();
     observableConfig.subscribe(c => {
       this.config = c;
     })
   }
 
-  async ngOnInit() : Promise<void> {
-    await this.getAppInfo();
-    await this.getConfig();
+  ngOnInit() : void {
+    this.getAppInfo();
+    this.getConfig();
   }
 }

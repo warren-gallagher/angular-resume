@@ -206,7 +206,7 @@ export class ExperienceService {
 
   constructor() { }
 
-  async getProfile() : Promise<Observable<Experience[]>> {
+  getProfile() :Observable<Experience[]> {
     return of(experience);
   }
 }

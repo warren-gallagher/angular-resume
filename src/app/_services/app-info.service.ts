@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable, of, pipe, catchError } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 export type AppInfo = {
   appName: string,
@@ -17,14 +18,22 @@ const unknown: AppInfo = {
 
 export class AppInfoService {
 
-  constructor() { }
+  private httpClient : HttpClient;
+  constructor(httpClient : HttpClient) {
+    this.httpClient = httpClient;
+  }
 
-  async getAppInfo() : Promise<Observable<AppInfo>> {
-    const response = await fetch('assets/app-info.json');
-    if( response.ok ) {
-      const appInfo = await response.json();
-      return of(appInfo);
-    }
-    return of(unknown);
+  getAppInfo() : Observable<AppInfo> {
+    return this.httpClient.get<AppInfo>('assets/app-info.json')
+      .pipe(
+        catchError(function(err) {
+          console.log('error caught in service')
+          console.error(`AppInfoService.getAppInfo() ERROR : ${JSON.stringify(err,null,2)}`);
+
+          //Handle the error here
+
+          return of(unknown);    //Rethrow it back to component
+        })
+      );
   }
 }

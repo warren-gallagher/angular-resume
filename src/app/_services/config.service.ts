@@ -21,7 +21,7 @@ export class ConfigService {
 
   constructor() { }
 
-  async getConfig() : Promise<Observable<Config>> {
+  getConfig() : Observable<Config> {
     return of(config);
   }
 }

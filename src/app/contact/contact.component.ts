@@ -14,15 +14,15 @@ export class ContactComponent implements OnInit {
     this.contactService = contactService;
   }
 
-  async getContact(){
-    const observableContact = await this.contactService.getContact();
+ getContact(){
+    const observableContact = this.contactService.getContact();
     observableContact.subscribe(c => {
       this.contact = c;
     })
   }
 
-  async ngOnInit() : Promise<void> {
-    await this.getContact();
+  ngOnInit() : void {
+   this.getContact();
   }
 
 }

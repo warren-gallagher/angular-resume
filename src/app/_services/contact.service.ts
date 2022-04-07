@@ -22,7 +22,7 @@ export class ContactService {
   
   constructor() { }
   
-  async getContact() : Promise<Observable<Contact>> {
+ getContact() : Observable<Contact> {
     const contact: Contact = {
       name: "Warren Gallagher",
       pictureURL: "img/Warren_Gallagher_Sunglasses64x64.jpg",

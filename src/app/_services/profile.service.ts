@@ -40,7 +40,7 @@ export class ProfileService {
 
   constructor() { }
 
-  async getProfile() : Promise<Observable<Profile>> {
+  getProfile() : Observable<Profile> {
     return of(profile);
   }
 }

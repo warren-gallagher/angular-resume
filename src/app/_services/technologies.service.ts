@@ -108,7 +108,7 @@ export class TechnologiesService {
 
   constructor() { }
 
-  async getTechnologies() : Promise<Observable<Technology[]>> {
+  getTechnologies() : Observable<Technology[]> {
     return of(technologies);
   }
 }
