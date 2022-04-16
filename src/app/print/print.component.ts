@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
 import { ContactService } from '../_services/contact.service';
 import { ProfileService } from '../_services/profile.service';
 import { ExperienceService } from '../_services/experience.service';
@@ -9,14 +9,19 @@ import type { Profile } from '../_services/profile.service';
 import type { Experience } from '../_services/experience.service';
 import type { Technology } from '../_services/technologies.service';
 import type { Config } from '../_services/config.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-print',
   templateUrl: './print.component.html',
   styleUrls: ['./print.component.css']
 })
-export class PrintComponent implements OnInit {
-
+export class PrintComponent implements OnInit, OnDestroy, AfterViewInit {
+  contactSubscription: Subscription | undefined;
+  profileSubscription: Subscription | undefined;
+  experienceSubscription: Subscription | undefined;
+  technologiesSubscription: Subscription | undefined;
+  configSubscription: Subscription | undefined;
   contact: Contact | undefined;
   profile: Profile | undefined;
   profileLoaded: boolean = false;
@@ -40,14 +45,14 @@ export class PrintComponent implements OnInit {
 
    getContact(){
     const observableContact = this.contactService.getContact();
-    observableContact.subscribe(c => {
+    this.contactSubscription = observableContact.subscribe(c => {
       this.contact = c;
     })
   }
 
   getProfile(){
     const observableProfile = this.profileService.getProfile();
-    observableProfile.subscribe(p => {
+    this.profileSubscription = observableProfile.subscribe(p => {
       this.profile = p;
       this.profileLoaded = true;
     })
@@ -55,21 +60,21 @@ export class PrintComponent implements OnInit {
 
   getExperience(){
     const observableExperience = this.experienceService.getProfile();
-    observableExperience.subscribe(e => {
+    this.experienceSubscription = observableExperience.subscribe(e => {
       this.experience = e;
     })
   }
 
   getTechnologies() {
     const observableTechnologies = this.technologiesService.getTechnologies();
-    observableTechnologies.subscribe(t => {
+    this.technologiesSubscription = observableTechnologies.subscribe(t => {
       this.technologies = t;
     })
   }
 
   getConfig() {
     const observableConfig = this.configService.getConfig();
-    observableConfig.subscribe(c => {
+    this.configSubscription = observableConfig.subscribe(c => {
       this.config = c;
     })
   }
@@ -80,6 +85,14 @@ export class PrintComponent implements OnInit {
     this.getExperience();
     this.getTechnologies();
     this.getConfig();
+  }
+
+  ngOnDestroy(): void {
+    this.configSubscription?.unsubscribe();
+    this.contactSubscription?.unsubscribe();
+    this.experienceSubscription?.unsubscribe();
+    this.technologiesSubscription?.unsubscribe();
+    this.profileSubscription?.unsubscribe();
   }
 
   ngAfterViewInit() : void {

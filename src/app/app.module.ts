@@ -13,6 +13,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MarkdownModule } from 'ngx-markdown';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SignupComponent } from './signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     ExperienceComponent,
     PrintComponent,
     ContactComponent,
-    AboutComponent
+    AboutComponent,
+    SignupComponent,
   ],
   imports: [
     BrowserModule,

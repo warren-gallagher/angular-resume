@@ -7,23 +7,25 @@
             <tbody>
                 <tr>
                     <th class="text-end p-2">Package Name</th>
-                    <td >{{ appInfo?.appName }}</td>
+                    <td *ngIf="appInfo">{{ appInfo.appName }}</td>
                 </tr>
                 <tr>
                     <th class="text-end p-2">Package Version</th>
-                    <td>{{ appInfo?.appVersion }}</td>
+                    <td *ngIf="appInfo">{{ appInfo.appVersion }}</td>
                 </tr>
                 <tr>
                     <th class="text-end p-2">Copyright</th>
-                    <td>{{config?.copyright}}</td>
+                    <td *ngIf="config">{{config.copyright}}</td>
                 </tr>
                 <tr>
                     <th class="text-end p-2">Repository</th>
-                    <td><a target="_blank" [href]="config?.repositoryURL">
-                        {{config?.repositoryURL}}
-                    </a></td>
+                    <td *ngIf="config">
+                        <a target="_blank" [href]="config.repositoryURL">{{config.repositoryURL}}</a>
+                    </td>
                 </tr>
             </tbody>
         </table>
     </div>  
 </div>
+
+<!--app-signup *ngIf="appInfo" [initialValues]="initialValues" on-finalValues="finalValues($event)"></app-signup-->

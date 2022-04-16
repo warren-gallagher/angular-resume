@@ -1,12 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ContactService } from '../_services/contact.service';
 import type { Contact } from '../_services/contact.service';
+import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.css']
 })
-export class ContactComponent implements OnInit {
+export class ContactComponent implements OnInit, OnDestroy {
+  contactSubscription: Subscription | undefined;
   contact: Contact | undefined;
 
   private contactService: ContactService;
@@ -16,13 +18,17 @@ export class ContactComponent implements OnInit {
 
  getContact(){
     const observableContact = this.contactService.getContact();
-    observableContact.subscribe(c => {
+    this.contactSubscription = observableContact.subscribe(c => {
       this.contact = c;
     })
   }
 
   ngOnInit() : void {
-   this.getContact();
+    this.getContact();
+  }
+
+  ngOnDestroy(): void {
+    this.contactSubscription?.unsubscribe();
   }
 
 }

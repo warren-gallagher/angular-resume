@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ContactService } from '../_services/contact.service';
 import { ExperienceService } from '../_services/experience.service';
 import type { Contact } from '../_services/contact.service';
 import type { Experience } from '../_services/experience.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-experience',
   templateUrl: './experience.component.html',
   styleUrls: ['./experience.component.css']
 })
-export class ExperienceComponent implements OnInit {
+export class ExperienceComponent implements OnInit, OnDestroy {
+  contactSubscription: Subscription | undefined;
+  experienceSubscription: Subscription | undefined;
   contact: Contact | undefined;
   experience: Experience[] | undefined;
   private contactService: ContactService;
@@ -20,24 +23,27 @@ export class ExperienceComponent implements OnInit {
     this.experienceService = experienceService;
   }
 
-  async getContact(){
-    const observableContact = await this.contactService.getContact();
-    observableContact.subscribe(c => {
+  getContact(){
+    const observableContact = this.contactService.getContact();
+    this.contactSubscription = observableContact.subscribe(c => {
       this.contact = c;
     })
   }
 
-  async getExperience(){
-    const observableExperience = await this.experienceService.getProfile();
-    observableExperience.subscribe(e => {
+  getExperience(){
+    const observableExperience = this.experienceService.getProfile();
+    this.experienceSubscription = observableExperience.subscribe(e => {
       this.experience = e;
     })
   }
 
-  async ngOnInit() : Promise<void> {
-    await this.getContact();
-    await this.getExperience();
+  ngOnInit() : void {
+    this.getContact();
+    this.getExperience();
   }
 
-
+  ngOnDestroy(): void {
+    this.contactSubscription?.unsubscribe();
+    this.experienceSubscription?.unsubscribe();
+  }
 }

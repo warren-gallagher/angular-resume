@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ContactService } from '../_services/contact.service';
 import { ProfileService } from '../_services/profile.service';
 import type { Contact } from '../_services/contact.service';
 import type { Profile } from '../_services/profile.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
-export class ProfileComponent implements OnInit {
+export class ProfileComponent implements OnInit, OnDestroy {
+  contactSubscription: Subscription | undefined;
+  profileSubscription: Subscription | undefined;
   contact: Contact | undefined;
   profile: Profile | undefined;
   contactLoaded: boolean = false;
@@ -25,7 +28,7 @@ export class ProfileComponent implements OnInit {
 
   getContact(){
     const observableContact = this.contactService.getContact();
-    observableContact.subscribe(c => {
+    this.contactSubscription = observableContact.subscribe(c => {
       this.contact = c;
       this.contactLoaded = true;
     })
@@ -33,7 +36,7 @@ export class ProfileComponent implements OnInit {
 
  getProfile(){
     const observableProfile = this.profileService.getProfile();
-    observableProfile.subscribe(p => {
+    this.profileSubscription = observableProfile.subscribe(p => {
       this.profile = p;
       this.profileLoaded = true;
     })
@@ -44,5 +47,9 @@ export class ProfileComponent implements OnInit {
     this.getProfile();
   }
 
+  ngOnDestroy(): void {
+    this.contactSubscription?.unsubscribe();
+    this.profileSubscription?.unsubscribe();
+  }
 
 }

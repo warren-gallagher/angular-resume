@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Contact, ContactService } from './_services/contact.service';
 
@@ -7,7 +7,7 @@ import { Contact, ContactService } from './_services/contact.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = `Resume`;
   active = 'contact';
   isMenuCollapsed = true;
@@ -29,15 +29,15 @@ export class AppComponent {
     })
   }
 
-  async getContact(){
-    const observableContact = await this.contactService.getContact();
+  getContact(){
+    const observableContact = this.contactService.getContact();
     observableContact.subscribe(c => {
       this.contact = c;
     })
   }
 
-  async ngOnInit() : Promise<void> {
-    await this.getContact();
+  ngOnInit() : void {
+    this.getContact();
   }
 
 }

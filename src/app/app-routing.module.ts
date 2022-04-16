@@ -6,13 +6,16 @@ import { ExperienceComponent } from './experience/experience.component';
 import { TechnologiesComponent } from './technologies/technologies.component';
 import { PrintComponent } from './print/print.component';
 import { AboutComponent } from './about/about.component';
+import { SignupComponent } from './signup/signup.component';
+
 const routes: Routes = [
   { path: '', component: ContactComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'experience', component: ExperienceComponent },
   { path: 'technologies', component: TechnologiesComponent },
   { path: 'print', component: PrintComponent },
-  { path: 'about', component: AboutComponent }
+  { path: 'about', component: AboutComponent },
+  { path: 'signup', component: SignupComponent }
 ];
 
 @NgModule({
