@@ -9,7 +9,8 @@ import { AboutComponent } from './about/about.component';
 import { SignupComponent } from './signup/signup.component';
 
 const routes: Routes = [
-  { path: '', component: ContactComponent },
+  { path: '', pathMatch: 'full', redirectTo: 'contact' },
+  { path: 'contact', component: ContactComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'experience', component: ExperienceComponent },
   { path: 'technologies', component: TechnologiesComponent },
