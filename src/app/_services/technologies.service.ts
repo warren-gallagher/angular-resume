@@ -8,6 +8,20 @@ export type Technology = {
 
 const technologies : Technology[] = [
   {
+    category: "Verifiable Credentials",
+    markdown:
+`
+HyperLedger Indy with AnonCreds.
+
+Hyperledger Aries utilizing HyperLedger Indy with Anoncreds and W3C Verifiable Credentials.
+
+* Aries Cloud Agent - Python (ACA-PY)
+* Aries Bifold
+
+Microsoft Entra Verified ID.
+`
+  },
+  {
       category: "Programming Languages",
       markdown:
 `

@@ -23,10 +23,26 @@ RedSkyMobile.com - I provided business and technology advisory services prior to
 `
   },
   {
-      companyName: "Fortress.Legal",
-      workTitle: "Chief Technology Officer",
-      workDuration: "Nov 2020-Mar 2022",
+      companyName: "AffinitiQuest.io",
+      workTitle: "Sr. Software Developer",
+      workDuration: "Apr 2022-Current",
       markdown:
+`
+At AffinitiQuest.io, I am responsible for researching, designing implementing and supporting a SaaS product that
+gives companies the ability to issue and verify Verifiable Credentials.
+
+The user interfaces are implemented using Angular and Bootstrap.
+
+The application servers are written in C#, Typescript, and javascript.
+
+Deployment is to Microsoft Azure.
+`
+  },
+  {
+    companyName: "Fortress.Legal",
+    workTitle: "Chief Technology Officer",
+    workDuration: "Nov 2020-Mar 2022",
+    markdown:
 `
 At Fortress.Legal, I was responsible for hiring engineering and operations people and building the company's technology platform.
 
@@ -38,8 +54,8 @@ The application servers are written in Typescript, utilizing NodeJS, Express, Fo
 
 Deployment was to Amazon Web Services utilizing Elastic Load Balancer, Database as a Service and Virtual Servers.
 `
-  },
-  {
+},
+{
       companyName: "APXdata.com",
       workTitle: "Chief Technology Officer",
       workDuration: "2014-2020",
