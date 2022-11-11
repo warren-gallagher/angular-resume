@@ -8,6 +8,7 @@ export type Contact = {
   linkedInURL: string;
   githubURL: string;
   emailURL: string;
+  mastodonURL: string;
   emailAddr: string;
   mobilePhone: string;
   mobilePhoneURL: string;
@@ -20,6 +21,7 @@ const contact: Contact = {
   linkedInURL: "https://ca.linkedin.com/pub/warren-gallagher/0/3b/18a",
   githubURL: "https://github.com/warren-gallagher?tab=repositories/",
   emailURL: "mailto:warren@gallaghers.ca?subject=Resume Inquiry",
+  mastodonURL: "https://twit.social/@WarrenGallagher",
   emailAddr: "warren@gallaghers.ca",
   mobilePhone: "613.791.4987",
   mobilePhoneURL: "tel:613.791.4987"
