@@ -11,6 +11,23 @@ const technologies : Technology[] = [
     category: "Verifiable Credentials",
     markdown:
 `
+ISO mDL - ISO 18013-5
+
+* other mdoc credentials
+* CBOR Encoding
+* X.509 certificate management
+
+OID4VCI
+
+* pre-auth flow
+* authorized flow
+
+OID4VP
+
+SIOP
+
+Microsoft Entra Verified ID.
+
 HyperLedger Indy with AnonCreds.
 
 Hyperledger Aries utilizing HyperLedger Indy with Anoncreds and W3C Verifiable Credentials.
@@ -18,7 +35,6 @@ Hyperledger Aries utilizing HyperLedger Indy with Anoncreds and W3C Verifiable C
 * Aries Cloud Agent - Python (ACA-PY)
 * Aries Bifold
 
-Microsoft Entra Verified ID.
 `
   },
   {
@@ -72,7 +88,7 @@ Mapbox - Extensive use.
 `
 PostgreSQL, SQLite, SQL Server, MySQL, MariaDB
 
-CouchDB, MongoDB, Riak
+CosmosDB, CouchDB, MongoDB
 `
   },
   {

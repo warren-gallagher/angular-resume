@@ -106,5 +106,8 @@
       }
     }
   },
-  "defaultProject": "angular-resume"
+  "defaultProject": "angular-resume",
+  "cli": {
+    "analytics": false
+  }
 }

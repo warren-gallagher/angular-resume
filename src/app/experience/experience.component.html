@@ -1,21 +1,19 @@
 <div class="text-center">
     <h3>{{contact?.name}} - Experience</h3>
 </div>
-<ngb-accordion [closeOthers]="true" activeIds="static-1">
-    <ngb-panel *ngFor="let experienceItem of experience"  >
-        <ng-template ngbPanelTitle>
-            <table>
-                <tbody>
-                    <tr>
-                        <th>{{experienceItem.companyName}}</th>
-                        <th>{{experienceItem.workTitle}}</th>
-                        <th>{{experienceItem.workDuration}}</th>
-                    </tr>
-                </tbody>
-            </table>
-        </ng-template>
-        <ng-template ngbPanelContent>
-            <markdown>{{experienceItem.markdown}}</markdown>
-        </ng-template>
-    </ngb-panel>
-</ngb-accordion>
+<div ngbAccordion [closeOthers]="true" > <!-- -->
+    <div ngbAccordionItem *ngFor="let experienceItem of experience"  >
+        <span ngbAccordionHeader>
+            <button ngbAccordionButton>
+                {{experienceItem.companyName}} : {{experienceItem.workTitle}} : {{experienceItem.workDuration}}
+            </button>
+        </span>
+        <div ngbAccordionCollapse>
+            <div ngbAccordionBody>
+                <ng-template>
+                    <markdown>{{experienceItem.markdown}}</markdown>
+                </ng-template>
+            </div>
+        </div>
+    </div>
+</div>

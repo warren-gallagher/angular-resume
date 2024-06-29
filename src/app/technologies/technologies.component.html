@@ -2,20 +2,18 @@
     <h3>{{contact?.name}} - Technology</h3>
 </div>
 
-<ngb-accordion [closeOthers]="true" activeIds="static-1">
-    <ngb-panel *ngFor="let technology of technologies"  >
-        <ng-template ngbPanelTitle>
-            <table>
-                <tbody>
-                    <tr>
-                        <th>{{technology.category}}</th>
-                    </tr>
-                </tbody>
-            </table>
-        </ng-template>
-        <ng-template ngbPanelContent>
-            <markdown>{{technology.markdown}}</markdown>
-        </ng-template>
-    </ngb-panel>
-</ngb-accordion>
+<div ngbAccordion [closeOthers]="true" >
+    <div ngbAccordionItem *ngFor="let technology of technologies"  >
+        <span ngbAccordionHeader>
+            <button ngbAccordionButton>{{technology.category}}</button>
+        </span>
+        <div ngbAccordionCollapse>
+            <div ngbAccordionBody>
+                <ng-template >
+                    <markdown>{{technology.markdown}}</markdown>
+                </ng-template>
+            </div>
+        </div>
+    </div>
+</div>
 
