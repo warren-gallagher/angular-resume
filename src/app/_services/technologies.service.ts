@@ -8,6 +8,24 @@ export type Technology = {
 
 const technologies : Technology[] = [
   {
+    category: "OpenSSL Providers",
+    markdown: 
+`
+Wrote an OpenSSL Provider than allows OpenSSL to delegate creation of private keys and signing operations to Azure KeyVault.
+`
+  },
+  {
+    category: "AI",
+    markdown: 
+`
+MCP - created an MCP server that integrated with Claude Desktop and ChatGPT
+
+Skills - created skills that can be used by Claude Code
+
+Software Architecture, Documentation, Planning and Implemenation using Claude Code.
+`
+  },
+  {
     category: "Verifiable Credentials",
     markdown:
 `
@@ -16,6 +34,10 @@ ISO mDL - ISO 18013-5
 * other mdoc credentials
 * CBOR Encoding
 * X.509 certificate management
+
+Supply Chain Credentials
+
+Secure Credentials
 
 OID4VCI
 

@@ -29,7 +29,7 @@ RedSkyMobile.com - I provided business and technology advisory services prior to
       markdown:
 `
 At AffinitiQuest.io, I am responsible for researching, designing implementing and supporting a SaaS product that
-gives companies the ability to issue and verify Verifiable Credentials.
+gives companies the ability to issue and prove validity of Verifiable Credentials.
 
 The user interfaces are implemented using Angular and Bootstrap.
 
